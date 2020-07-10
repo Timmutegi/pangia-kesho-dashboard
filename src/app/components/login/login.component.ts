@@ -33,12 +33,13 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.isLoading = true;
+    this.router.navigate(['/dashboard']);
 
-    this.api.login('Users/login', this.loginForm.value).subscribe(
+    this.api.login('/Users/login', this.loginForm.value).subscribe(
       res => {
         localStorage.setItem('token', res.id);
         localStorage.setItem('ttl', res.ttl);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/dashboard']);
         this.isLoading = false;
       },
       err => {
