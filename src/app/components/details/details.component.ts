@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class DetailsComponent implements OnInit {
   ID: string;
   policyHolder: any;
+  isLoading = true;
 
   constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
 
@@ -19,6 +20,7 @@ export class DetailsComponent implements OnInit {
       res => {
         console.log(res);
         this.policyHolder = res;
+        this.isLoading = false;
       }
     );
 
