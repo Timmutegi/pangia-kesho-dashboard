@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
-  baseUrl = 'https://mbima.bluewaveinsurance.co:4434/api/PolicyHolders';
+  baseUrl = 'https://mbima.bluewaveinsurance.co:4434/api';
 
   constructor(private http: HttpClient) { }
 
