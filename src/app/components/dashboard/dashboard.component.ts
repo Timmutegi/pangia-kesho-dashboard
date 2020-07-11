@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   minDate: Date;
   maxDate: Date;
   dataSource = new MatTableDataSource(ELEMENT_DATA);
-  displayedColumns: string[] = ['index', 'fullname', 'gender', 'church', 'phone', 'ID', 'email', 'cover', 'dob', 'createdAt'];
+  displayedColumns: string[] = ['index', 'fullname', 'church', 'phone', 'ID', 'email', 'createdAt'];
   filterForm = new FormGroup({
     fromDate: new FormControl(),
     toDate: new FormControl(),
