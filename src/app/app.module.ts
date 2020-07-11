@@ -3,7 +3,13 @@ import { NgModule } from '@angular/core';
 
 import {MatTableModule} from '@angular/material/table';
 import { MatTableExporterModule } from 'mat-table-exporter';
-import { MatPaginatorModule, MatInputModule, MatProgressSpinnerModule, MatNativeDateModule, MatDatepickerModule } from '@angular/material';
+import {
+  MatPaginatorModule,
+  MatInputModule,
+  MatProgressSpinnerModule,
+  MatNativeDateModule,
+  MatDatepickerModule,
+  MatSelectModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,7 +47,8 @@ import { DetailsComponent } from './components/details/details.component';
     MatProgressSpinnerModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatTableExporterModule
+    MatTableExporterModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
