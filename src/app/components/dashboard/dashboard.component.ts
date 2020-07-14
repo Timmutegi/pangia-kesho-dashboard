@@ -14,14 +14,41 @@ const ELEMENT_DATA: Data[] = [];
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
   isLoading = true;
   minDate: Date;
   maxDate: Date;
   dataSource = new MatTableDataSource(ELEMENT_DATA);
-  displayedColumns: string[] = ['index', 'fullname', 'church', 'phone', 'ID', 'email', 'createdAt'];
+  displayedColumns: string[] = [
+    'index',
+    'church',
+    'firstName',
+    'lastName',
+    'mobileNumber',
+    'idNumber',
+    'mpesaTransactionCode',
+    'dateOfBirth',
+    'kraPinNo',
+    'gender',
+    'createdAt',
+    'email',
+    'idPhotoFront',
+    'idPhotoBack',
+    'passportPhoto',
+    'nokfirstName',
+    'noklastName',
+    'nokDob',
+    'nokgender',
+    'nokEmail',
+    'nokmobileNumber',
+    'nokID',
+    'nokmobileNumber',
+    'nokidPhotoFront',
+    'nokidPhotoBack',
+    'nokpassportPhoto',
+  ];
   filterForm = new FormGroup({
     fromDate: new FormControl(),
     toDate: new FormControl(),
