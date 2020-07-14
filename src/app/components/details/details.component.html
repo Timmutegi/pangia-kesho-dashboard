@@ -6,133 +6,138 @@
             <span class="sr-only">Loading...</span>
         </div>
     </div>
-    <div class="container" *ngIf="!isLoading">
-        <!-- PRINCIPAL INFORMATION -->
-        <div class="row">
-            <div class="col-md-12">
-                <h4>Principal</h4>
-                <hr>
-            </div>
-            <div class="col-md-4">
-                <p>Church: {{policyHolder?.church}}</p>
-                <p>Firstname: {{policyHolder?.firstName}}</p>
-                <p>Lastname: {{policyHolder?.lastName}}</p>
-                <p>Email: {{policyHolder?.email}}</p>
-                <p>Phone: {{policyHolder?.mobileNumber}}</p>
-                <p>Gender: {{policyHolder?.gender}}</p>
-                <p>KRA pin: {{policyHolder?.kraPinNo}}</p>
-            </div>
-            <div class="col-md-4">
-                <p>National ID: {{policyHolder?.idNumber}}</p>
-                <p>DOB: {{policyHolder?.dateOfBirth}}</p>
-                <p>CreatedAt: {{policyHolder?.createdAt | date: 'shortDate'}}</p>
-                <p>Cover: {{policyHolder?.selectedCoverPlan}}</p>
-                <p>Mpesa Code: {{policyHolder?.mpesaTransactionCode}}</p>
-                <p>Children: {{policyHolder?.numberOfChildren}}</p>
-            </div>
-            <div class="col-md-4">
-                <p>Accidents: {{policyHolder?.accidents}}</p>
-                <p *ngIf="policyHolder?.accidents === true">Accidents Description: {{policyHolder?.accidentsDesc}}</p>
-                <p>Chronic Illness: {{policyHolder?.chronicIllness}}</p>
-                <p *ngIf="policyHolder?.chronicIllness === true">Chronic Illness Description: {{policyHolder?.chronicIllnessDesc}}</p>
-                <p>Physical Defect or Infirmity: {{policyHolder?.physicalDefectOrInfirmity}}</p>
-                <p *ngIf="policyHolder?.physicalDefectOrInfirmity === true">Chronic Illness Description: {{policyHolder?.chronicIllnessDesc}}</p>
-            </div>
-            <div class="col-md-4 img">
-                <img src="{{policyHolder?.idPhotoFront}}" style="width:200px;height:200px;">
-                <p>ID photo Front</p>
-            </div>
-            <div class="col-md-4 img">
-                <img src="{{policyHolder?.idPhotoBack}}" style="width:200px;height:200px;">
-                <p>ID photo Back</p>
-            </div>
-            <div class="col-md-4 img">
-                <img src="{{policyHolder?.passportPhoto}}" style="width:200px;height:200px;">
-                <p>Passport Photo</p>
-            </div>
-        </div>
-
-        <!-- SPOUSE DETAILS -->
-        <div class="row" *ngIf="policyHolder?.spousePresent === true">
-            <div class="col-md-12">
-                <h4>Spouse</h4>
-                <hr>
-            </div>
-            <div class="col-md-3">
-                <p>Firstname: {{policyHolder?.spouse.firstName}}</p>
-                <p>Lastname: {{policyHolder?.spouse.lastName}}</p>
-                <p>Phone: {{policyHolder?.spouse.mobileNumber}}</p>
-                <p>DOB: {{policyHolder?.spouse.dateOfBirth}}</p>
-                <p>Email: {{policyHolder?.spouse.email}}</p>
-                <p>National ID: {{policyHolder?.spouse.idNumber}}</p>
-                <p>Gender: {{policyHolder?.spouse.gender}}</p>
-            </div>
-            <div class="col-md-3 img">
-                <img src="{{policyHolder?.spouse.idPhotoFront}}" style="width:200px;height:200px;">
-                <p>ID photo Front</p>
-            </div>
-            <div class="col-md-3 img">
-                <img src="{{policyHolder?.spouse.idPhotoBack}}" style="width:200px;height:200px;">
-                <p>ID photo Back</p>
-            </div>
-            <div class="col-md-3 img">
-                <img src="{{policyHolder?.spouse.passportPhoto}}" style="width:200px;height:200px;">
-                <p>Passport Photo</p>
-            </div>
-        </div>
-
-        <!-- NEXT OF KIN DETAILS -->
-        <div class="row">
-            <div class="col-md-12">
-                <h4>Next of Kin</h4>
-                <hr>
-            </div>
-            <div class="col-md-4">
-                <p>Firstname: {{policyHolder?.nextOfKin.firstName}}</p>
-                <p>Lastname: {{policyHolder?.nextOfKin.lastName}}</p>
-                <p>Phone: {{policyHolder?.nextOfKin.mobileNumber}}</p>
-                <p>DOB: {{policyHolder?.nextOfKin.dateOfBirth}}</p>
-                <p>Email: {{policyHolder?.nextOfKin.email}}</p>
-                <p>National ID: {{policyHolder?.nextOfKin.idNumber}}</p>
-                <p>Gender: {{policyHolder?.nextOfKin.gender}}</p>
-            </div>
-            <div class="col-md-2 img">
-                <img src="{{policyHolder?.nextOfKin.idPhotoFront}}" style="width:150px;height:150px;">
-                <p>ID photo Front</p>
-            </div>
-            <div class="col-md-2 img">
-                <img src="{{policyHolder?.nextOfKin.idPhotoBack}}" style="width:150px;height:150px;">
-                <p>ID photo Back</p>
-            </div>
-            <div class="col-md-2 img">
-                <img src="{{policyHolder?.nextOfKin.passportPhoto}}" style="width:150px;height:150px;">
-                <p>Passport Photo</p>
-            </div>
-        </div>
-
-        <!-- CHILDREN DETAILS -->
-        <div *ngIf="policyHolder?.numberOfChildren > 0">
-            <div class="row" *ngFor="let child of policyHolder?.children; let i = index;">
+    <div *ngIf="!isLoading">
+        <div class="container" id="htmlData" #htmlData>
+            <!-- PRINCIPAL INFORMATION -->
+            <div class="row">
                 <div class="col-md-12">
-                    <h4>Child {{i + 1}}</h4>
+                    <h4>Principal</h4>
                     <hr>
                 </div>
-                <div class="col-md-4 pt-4">
-                    <p>Firstname: {{child.firstName}}</p>
-                    <p>Lastname: {{child.lastName}}</p>
-                    <p>DOB: {{child.dateOfBirth}}</p>
-                    <p>Gender: {{child.gender}}</p>
+                <div class="col-md-4">
+                    <p>Church: {{policyHolder?.church}}</p>
+                    <p>Firstname: {{policyHolder?.firstName}}</p>
+                    <p>Lastname: {{policyHolder?.lastName}}</p>
+                    <p>Email: {{policyHolder?.email}}</p>
+                    <p>Phone: {{policyHolder?.mobileNumber}}</p>
+                    <p>Gender: {{policyHolder?.gender}}</p>
+                    <p>KRA pin: {{policyHolder?.kraPinNo}}</p>
+                </div>
+                <div class="col-md-4">
+                    <p>National ID: {{policyHolder?.idNumber}}</p>
+                    <p>DOB: {{policyHolder?.dateOfBirth}}</p>
+                    <p>CreatedAt: {{policyHolder?.createdAt | date: 'shortDate'}}</p>
+                    <p>Cover: {{policyHolder?.selectedCoverPlan}}</p>
+                    <p>Mpesa Code: {{policyHolder?.mpesaTransactionCode}}</p>
+                    <p>Children: {{policyHolder?.numberOfChildren}}</p>
+                </div>
+                <div class="col-md-4">
+                    <p>Accidents: {{policyHolder?.accidents}}</p>
+                    <p *ngIf="policyHolder?.accidents === true">Accidents Description: {{policyHolder?.accidentsDesc}}</p>
+                    <p>Chronic Illness: {{policyHolder?.chronicIllness}}</p>
+                    <p *ngIf="policyHolder?.chronicIllness === true">Chronic Illness Description: {{policyHolder?.chronicIllnessDesc}}
+                    </p>
+                    <p>Physical Defect or Infirmity: {{policyHolder?.physicalDefectOrInfirmity}}</p>
+                    <p *ngIf="policyHolder?.physicalDefectOrInfirmity === true">Chronic Illness Description: {{policyHolder?.chronicIllnessDesc}}
+                    </p>
                 </div>
                 <div class="col-md-4 img">
-                    <img src="{{child.proofOfSchooling}}" style="width:200px;height:200px;">
-                    <p>Proof of Schooling</p>
+                    <img src="{{policyHolder?.idPhotoFront}}" style="width:200px;height:200px;">
+                    <p>ID photo Front</p>
                 </div>
                 <div class="col-md-4 img">
-                    <img src="{{child.birthCertOrIdPhoto}}" style="width:200px;height:200px;">
-                    <p>Birth cert or ID</p>
+                    <img src="{{policyHolder?.idPhotoBack}}" style="width:200px;height:200px;">
+                    <p>ID photo Back</p>
+                </div>
+                <div class="col-md-4 img">
+                    <img src="{{policyHolder?.passportPhoto}}" style="width:200px;height:200px;">
+                    <p>Passport Photo</p>
+                </div>
+            </div>
+
+            <!-- SPOUSE DETAILS -->
+            <div class="row" *ngIf="policyHolder?.spousePresent === true">
+                <div class="col-md-12">
+                    <h4>Spouse</h4>
+                    <hr>
+                </div>
+                <div class="col-md-3">
+                    <p>Firstname: {{policyHolder?.spouse.firstName}}</p>
+                    <p>Lastname: {{policyHolder?.spouse.lastName}}</p>
+                    <p>Phone: {{policyHolder?.spouse.mobileNumber}}</p>
+                    <p>DOB: {{policyHolder?.spouse.dateOfBirth}}</p>
+                    <p>Email: {{policyHolder?.spouse.email}}</p>
+                    <p>National ID: {{policyHolder?.spouse.idNumber}}</p>
+                    <p>Gender: {{policyHolder?.spouse.gender}}</p>
+                </div>
+                <div class="col-md-3 img">
+                    <img src="{{policyHolder?.spouse.idPhotoFront}}" style="width:200px;height:200px;">
+                    <p>ID photo Front</p>
+                </div>
+                <div class="col-md-3 img">
+                    <img src="{{policyHolder?.spouse.idPhotoBack}}" style="width:200px;height:200px;">
+                    <p>ID photo Back</p>
+                </div>
+                <div class="col-md-3 img">
+                    <img src="{{policyHolder?.spouse.passportPhoto}}" style="width:200px;height:200px;">
+                    <p>Passport Photo</p>
+                </div>
+            </div>
+
+            <!-- NEXT OF KIN DETAILS -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Next of Kin</h4>
+                    <hr>
+                </div>
+                <div class="col-md-4">
+                    <p>Firstname: {{policyHolder?.nextOfKin.firstName}}</p>
+                    <p>Lastname: {{policyHolder?.nextOfKin.lastName}}</p>
+                    <p>Phone: {{policyHolder?.nextOfKin.mobileNumber}}</p>
+                    <p>DOB: {{policyHolder?.nextOfKin.dateOfBirth}}</p>
+                    <p>Email: {{policyHolder?.nextOfKin.email}}</p>
+                    <p>National ID: {{policyHolder?.nextOfKin.idNumber}}</p>
+                    <p>Gender: {{policyHolder?.nextOfKin.gender}}</p>
+                </div>
+                <div class="col-md-2 img">
+                    <img src="{{policyHolder?.nextOfKin.idPhotoFront}}" style="width:150px;height:150px;">
+                    <p>ID photo Front</p>
+                </div>
+                <div class="col-md-2 img">
+                    <img src="{{policyHolder?.nextOfKin.idPhotoBack}}" style="width:150px;height:150px;">
+                    <p>ID photo Back</p>
+                </div>
+                <div class="col-md-2 img">
+                    <img src="{{policyHolder?.nextOfKin.passportPhoto}}" style="width:150px;height:150px;">
+                    <p>Passport Photo</p>
+                </div>
+            </div>
+
+            <!-- CHILDREN DETAILS -->
+            <div *ngIf="policyHolder?.numberOfChildren > 0">
+                <div class="row" *ngFor="let child of policyHolder?.children; let i = index;">
+                    <div class="col-md-12">
+                        <h4>Child {{i + 1}}</h4>
+                        <hr>
+                    </div>
+                    <div class="col-md-4 pt-4">
+                        <p>Firstname: {{child.firstName}}</p>
+                        <p>Lastname: {{child.lastName}}</p>
+                        <p>DOB: {{child.dateOfBirth}}</p>
+                        <p>Gender: {{child.gender}}</p>
+                    </div>
+                    <div class="col-md-4 img">
+                        <img src="{{child.proofOfSchooling}}" style="width:200px;height:200px;">
+                        <p>Proof of Schooling</p>
+                    </div>
+                    <div class="col-md-4 img">
+                        <img src="{{child.birthCertOrIdPhoto}}" style="width:200px;height:200px;">
+                        <p>Birth cert or ID</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 <app-footer></app-footer>
