@@ -34,11 +34,6 @@
                     <th mat-header-cell *matHeaderCellDef> No </th>
                     <td mat-cell *matCellDef="let policyHolder; let i = index;"> {{i+1}} </td>
                 </ng-container>
-                <!-- Name Column -->
-                <ng-container matColumnDef="fullname">
-                    <th mat-header-cell *matHeaderCellDef> Fullname </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.firstName | titlecase}} {{policyHolder.lastName | titlecase}} </td>
-                </ng-container>
 
                 <!-- Church Column -->
                 <ng-container matColumnDef="church">
@@ -46,14 +41,26 @@
                     <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.church}} </td>
                 </ng-container>
 
+                <!-- First Name Column -->
+                <ng-container matColumnDef="firstName">
+                    <th mat-header-cell *matHeaderCellDef> First name </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.firstName | titlecase}} </td>
+                </ng-container>
+
+                <!-- Last Name Column -->
+                <ng-container matColumnDef="lastName">
+                    <th mat-header-cell *matHeaderCellDef> Last name </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.firstName | titlecase}} </td>
+                </ng-container>
+
                 <!-- Phone column -->
-                <ng-container matColumnDef="phone">
+                <ng-container matColumnDef="mobileNumber">
                     <th mat-header-cell *matHeaderCellDef> Phone Number </th>
                     <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.mobileNumber}} </td>
                 </ng-container>
 
                 <!-- National ID Column -->
-                <ng-container matColumnDef="ID">
+                <ng-container matColumnDef="idNumber">
                     <th mat-header-cell *matHeaderCellDef> National ID </th>
                     <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.idNumber}} </td>
                 </ng-container>
@@ -64,10 +71,172 @@
                     <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.email}} </td>
                 </ng-container>
 
+                <!-- Mpesa Column -->
+                <ng-container matColumnDef="mpesaTransactionCode">
+                    <th mat-header-cell *matHeaderCellDef> Mpesa Code </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.mpesaTransactionCode}} </td>
+                </ng-container>
+
+                <!-- Date of Birth Column -->
+                <ng-container matColumnDef="dateOfBirth">
+                    <th mat-header-cell *matHeaderCellDef> DOB </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.dateOfBirth}} </td>
+                </ng-container>
+
+                <!-- Kra Pin Column -->
+                <ng-container matColumnDef="kraPinNo">
+                    <th mat-header-cell *matHeaderCellDef> Kra Pin </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.kraPinNo}} </td>
+                </ng-container>
+
+                <!-- Gender Column -->
+                <ng-container matColumnDef="gender">
+                    <th mat-header-cell *matHeaderCellDef> Gender </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.gender}} </td>
+                </ng-container>
+
                 <!-- Created At Column -->
                 <ng-container matColumnDef="createdAt">
                     <th mat-header-cell *matHeaderCellDef> Created At </th>
                     <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.createdAt | date : 'shortDate'}} </td>
+                </ng-container>
+
+                <!-- ID FRONT COLUMN -->
+                <ng-container matColumnDef="idPhotoFront">
+                    <th mat-header-cell *matHeaderCellDef> ID Front </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.idPhotoFront}} </td>
+                </ng-container>
+
+                <!-- ID BACK -->
+                <ng-container matColumnDef="idPhotoBack">
+                    <th mat-header-cell *matHeaderCellDef> ID Back </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.idPhotoBack}} </td>
+                </ng-container>
+
+                <!-- PASSPORT PHOTO -->
+                <ng-container matColumnDef="passportPhoto">
+                    <th mat-header-cell *matHeaderCellDef> Passport Photo </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.passportPhoto}} </td>
+                </ng-container>
+
+                <!-- NEXT OF KIN FIRST NAME -->
+                <ng-container matColumnDef="nokfirstName">
+                    <th mat-header-cell *matHeaderCellDef> Next of Kin Firstname </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.firstName}} </td>
+                </ng-container>
+
+                <!-- NEXT OF KIN LAST NAME -->
+                <ng-container matColumnDef="noklastName">
+                    <th mat-header-cell *matHeaderCellDef> Next of Kin Lastname </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.lastName}} </td>
+                </ng-container>
+
+                <!-- NEXT OF KIN DOB -->
+                <ng-container matColumnDef="nokDob">
+                    <th mat-header-cell *matHeaderCellDef> Next of Kin DOB </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.dateOfBirth}} </td>
+                </ng-container>
+
+                <!-- NEXT OF KIN GENDER-->
+                <ng-container matColumnDef="nokgender">
+                    <th mat-header-cell *matHeaderCellDef> Next of Kin Gender </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.gender}} </td>
+                </ng-container>
+
+                <!-- NEXT OF KIN EMAIL -->
+                <ng-container matColumnDef="nokEmail">
+                    <th mat-header-cell *matHeaderCellDef> Next of Kin Email </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.email}} </td>
+                </ng-container>
+
+                <!-- NEXT OF KIN ID -->
+                <ng-container matColumnDef="nokID">
+                    <th mat-header-cell *matHeaderCellDef> Next of Kin ID </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.idNumber}} </td>
+                </ng-container>
+
+                <!-- NEXT OF KIN PHONE -->
+                <ng-container matColumnDef="nokmobileNumber">
+                    <th mat-header-cell *matHeaderCellDef> Next of Kin Phone </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.mobileNumber}} </td>
+                </ng-container>
+
+                <!-- NEXT OF KIN ID FRONT COLUMN -->
+                <ng-container matColumnDef="nokidPhotoFront">
+                    <th mat-header-cell *matHeaderCellDef> Next of kin ID Front </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.idPhotoFront}} </td>
+                </ng-container>
+
+                <!-- NEXT OF KIN ID BACK -->
+                <ng-container matColumnDef="nokidPhotoBack">
+                    <th mat-header-cell *matHeaderCellDef> Next of kin ID Back </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.idPhotoBack}} </td>
+                </ng-container>
+
+                <!-- NEXT OF KIN PASSPORT PHOTO -->
+                <ng-container matColumnDef="nokpassportPhoto">
+                    <th mat-header-cell *matHeaderCellDef> Next of kin Passport Photo </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.passportPhoto}} </td>
+                </ng-container>
+
+                <!-- SPOUSE FIRST NAME -->
+                <ng-container matColumnDef="spousefirstName">
+                    <th mat-header-cell *matHeaderCellDef> Spouse Firstname </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.firstName}} </td>
+                </ng-container>
+
+                <!-- SPOUSE LAST NAME -->
+                <ng-container matColumnDef="spouselastName">
+                    <th mat-header-cell *matHeaderCellDef> Spouse Lastname </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.lastName}} </td>
+                </ng-container>
+
+                <!-- SPOUSE DOB -->
+                <ng-container matColumnDef="spouseDob">
+                    <th mat-header-cell *matHeaderCellDef> Spouse DOB </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.dateOfBirth}} </td>
+                </ng-container>
+
+                <!-- SPOUSE GENDER-->
+                <ng-container matColumnDef="spousegender">
+                    <th mat-header-cell *matHeaderCellDef> Spouse Gender </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.gender}} </td>
+                </ng-container>
+
+                <!-- SPOUSE EMAIL -->
+                <ng-container matColumnDef="spouseEmail">
+                    <th mat-header-cell *matHeaderCellDef> Spouse Email </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.email}} </td>
+                </ng-container>
+
+                <!-- SPOUSE ID -->
+                <ng-container matColumnDef="spouseID">
+                    <th mat-header-cell *matHeaderCellDef> Spouse ID </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.idNumber}} </td>
+                </ng-container>
+
+                <!-- SPOUSE PHONE -->
+                <ng-container matColumnDef="spousemobileNumber">
+                    <th mat-header-cell *matHeaderCellDef> Spouse Phone </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.mobileNumber}} </td>
+                </ng-container>
+
+                <!-- SPOUSE ID FRONT COLUMN -->
+                <ng-container matColumnDef="spouseidPhotoFront">
+                    <th mat-header-cell *matHeaderCellDef> Spouse ID Front </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.idPhotoFront}} </td>
+                </ng-container>
+
+                <!-- SPOUSE ID BACK -->
+                <ng-container matColumnDef="spouseidPhotoBack">
+                    <th mat-header-cell *matHeaderCellDef> Spouse ID Back </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.idPhotoBack}} </td>
+                </ng-container>
+
+                <!-- SPOUSE PASSPORT PHOTO -->
+                <ng-container matColumnDef="spousepassportPhoto">
+                    <th mat-header-cell *matHeaderCellDef> Spouse Passport Photo </th>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.passportPhoto}} </td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

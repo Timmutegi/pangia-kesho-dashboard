@@ -48,6 +48,17 @@ export class DashboardComponent implements OnInit {
     'nokidPhotoFront',
     'nokidPhotoBack',
     'nokpassportPhoto',
+    'spousefirstName',
+    'spouselastName',
+    'spouseDob',
+    'spousegender',
+    'spouseEmail',
+    'spousemobileNumber',
+    'spouseID',
+    'spousemobileNumber',
+    'spouseidPhotoFront',
+    'spouseidPhotoBack',
+    'spousepassportPhoto',
   ];
   filterForm = new FormGroup({
     fromDate: new FormControl(),
