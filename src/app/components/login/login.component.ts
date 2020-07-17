@@ -37,8 +37,8 @@ export class LoginComponent implements OnInit {
 
     this.api.login('/Users/login', this.loginForm.value).subscribe(
       res => {
+        console.log(res);
         localStorage.setItem('token', res.id);
-        localStorage.setItem('ttl', res.ttl);
         this.router.navigate(['/dashboard']);
         this.isLoading = false;
       },
