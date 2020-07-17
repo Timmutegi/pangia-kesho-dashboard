@@ -32,7 +32,7 @@ import { DetailsComponent } from './components/details/details.component';
     NavbarComponent,
     HeroSectionComponent,
     FooterComponent,
-    DetailsComponent
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,9 +48,9 @@ import { DetailsComponent } from './components/details/details.component';
     MatNativeDateModule,
     MatDatepickerModule,
     MatTableExporterModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
