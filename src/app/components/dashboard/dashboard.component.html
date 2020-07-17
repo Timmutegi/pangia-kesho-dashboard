@@ -50,7 +50,7 @@
                 <!-- Last Name Column -->
                 <ng-container matColumnDef="lastName">
                     <th mat-header-cell *matHeaderCellDef> Last name </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.firstName | titlecase}} </td>
+                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.lastName | titlecase}} </td>
                 </ng-container>
 
                 <!-- Phone column -->
@@ -119,124 +119,61 @@
                     <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.passportPhoto}} </td>
                 </ng-container>
 
-                <!-- NEXT OF KIN FIRST NAME -->
-                <ng-container matColumnDef="nokfirstName">
-                    <th mat-header-cell *matHeaderCellDef> Next of Kin Firstname </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.firstName}} </td>
+                <!-- NEXT OF KIN -->
+                <ng-container matColumnDef="nextofkin">
+                    <th mat-header-cell *matHeaderCellDef> Next of Kin </th>
+                    <td mat-cell *matCellDef="let policyHolder">
+                        <ng-container>
+                            <ul>
+                                <li>{{policyHolder.nextOfKin.firstName}} {{policyHolder.nextOfKin.lastName}}</li>
+                                <li>{{policyHolder.nextOfKin.dateOfBirth}}</li>
+                                <li>{{policyHolder.nextOfKin.gender}}</li>
+                                <li>{{policyHolder.nextOfKin.email}}</li>
+                                <li>{{policyHolder.nextOfKin.idNumber}}</li>
+                                <li>{{policyHolder.nextOfKin.mobileNumber}}</li>
+                                <li>{{policyHolder.nextOfKin.idPhotoFront}}</li>
+                                <li>{{policyHolder.nextOfKin.idPhotoBack}}</li>
+                                <li>{{policyHolder.nextOfKin.passportPhoto}}</li>
+                            </ul>
+                        </ng-container>
+                    </td>
                 </ng-container>
 
-                <!-- NEXT OF KIN LAST NAME -->
-                <ng-container matColumnDef="noklastName">
-                    <th mat-header-cell *matHeaderCellDef> Next of Kin Lastname </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.lastName}} </td>
+                <!-- SPOUSE -->
+                <ng-container matColumnDef="spouse">
+                    <th mat-header-cell *matHeaderCellDef> spouse </th>
+                    <td mat-cell *matCellDef="let policyHolder">
+                        <ng-container *ngIf="policyHolder.spousePresent">
+                            <ul>
+                                <li>{{policyHolder.spouse.firstName}} {{policyHolder.spouse.lastName}}</li>
+                                <li>{{policyHolder.spouse.dateOfBirth}}</li>
+                                <li>{{policyHolder.spouse.gender}}</li>
+                                <li>{{policyHolder.spouse.email}}</li>
+                                <li>{{policyHolder.spouse.idNumber}}</li>
+                                <li>{{policyHolder.spouse.mobileNumber}}</li>
+                                <li>{{policyHolder.spouse.idPhotoFront}}</li>
+                                <li>{{policyHolder.spouse.idPhotoBack}}</li>
+                                <li>{{policyHolder.spouse.passportPhoto}}</li>
+                            </ul>
+                        </ng-container>
+                    </td>
                 </ng-container>
 
-                <!-- NEXT OF KIN DOB -->
-                <ng-container matColumnDef="nokDob">
-                    <th mat-header-cell *matHeaderCellDef> Next of Kin DOB </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.dateOfBirth}} </td>
-                </ng-container>
-
-                <!-- NEXT OF KIN GENDER-->
-                <ng-container matColumnDef="nokgender">
-                    <th mat-header-cell *matHeaderCellDef> Next of Kin Gender </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.gender}} </td>
-                </ng-container>
-
-                <!-- NEXT OF KIN EMAIL -->
-                <ng-container matColumnDef="nokEmail">
-                    <th mat-header-cell *matHeaderCellDef> Next of Kin Email </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.email}} </td>
-                </ng-container>
-
-                <!-- NEXT OF KIN ID -->
-                <ng-container matColumnDef="nokID">
-                    <th mat-header-cell *matHeaderCellDef> Next of Kin ID </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.idNumber}} </td>
-                </ng-container>
-
-                <!-- NEXT OF KIN PHONE -->
-                <ng-container matColumnDef="nokmobileNumber">
-                    <th mat-header-cell *matHeaderCellDef> Next of Kin Phone </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.mobileNumber}} </td>
-                </ng-container>
-
-                <!-- NEXT OF KIN ID FRONT COLUMN -->
-                <ng-container matColumnDef="nokidPhotoFront">
-                    <th mat-header-cell *matHeaderCellDef> Next of kin ID Front </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.idPhotoFront}} </td>
-                </ng-container>
-
-                <!-- NEXT OF KIN ID BACK -->
-                <ng-container matColumnDef="nokidPhotoBack">
-                    <th mat-header-cell *matHeaderCellDef> Next of kin ID Back </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.idPhotoBack}} </td>
-                </ng-container>
-
-                <!-- NEXT OF KIN PASSPORT PHOTO -->
-                <ng-container matColumnDef="nokpassportPhoto">
-                    <th mat-header-cell *matHeaderCellDef> Next of kin Passport Photo </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.nextOfKin.passportPhoto}} </td>
-                </ng-container>
-
-                <!-- SPOUSE FIRST NAME -->
-                <ng-container matColumnDef="spousefirstName">
-                    <th mat-header-cell *matHeaderCellDef> Spouse Firstname </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.firstName}} </td>
-                </ng-container>
-
-                <!-- SPOUSE LAST NAME -->
-                <ng-container matColumnDef="spouselastName">
-                    <th mat-header-cell *matHeaderCellDef> Spouse Lastname </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.lastName}} </td>
-                </ng-container>
-
-                <!-- SPOUSE DOB -->
-                <ng-container matColumnDef="spouseDob">
-                    <th mat-header-cell *matHeaderCellDef> Spouse DOB </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.dateOfBirth}} </td>
-                </ng-container>
-
-                <!-- SPOUSE GENDER-->
-                <ng-container matColumnDef="spousegender">
-                    <th mat-header-cell *matHeaderCellDef> Spouse Gender </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.gender}} </td>
-                </ng-container>
-
-                <!-- SPOUSE EMAIL -->
-                <ng-container matColumnDef="spouseEmail">
-                    <th mat-header-cell *matHeaderCellDef> Spouse Email </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.email}} </td>
-                </ng-container>
-
-                <!-- SPOUSE ID -->
-                <ng-container matColumnDef="spouseID">
-                    <th mat-header-cell *matHeaderCellDef> Spouse ID </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.idNumber}} </td>
-                </ng-container>
-
-                <!-- SPOUSE PHONE -->
-                <ng-container matColumnDef="spousemobileNumber">
-                    <th mat-header-cell *matHeaderCellDef> Spouse Phone </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.mobileNumber}} </td>
-                </ng-container>
-
-                <!-- SPOUSE ID FRONT COLUMN -->
-                <ng-container matColumnDef="spouseidPhotoFront">
-                    <th mat-header-cell *matHeaderCellDef> Spouse ID Front </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.idPhotoFront}} </td>
-                </ng-container>
-
-                <!-- SPOUSE ID BACK -->
-                <ng-container matColumnDef="spouseidPhotoBack">
-                    <th mat-header-cell *matHeaderCellDef> Spouse ID Back </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.idPhotoBack}} </td>
-                </ng-container>
-
-                <!-- SPOUSE PASSPORT PHOTO -->
-                <ng-container matColumnDef="spousepassportPhoto">
-                    <th mat-header-cell *matHeaderCellDef> Spouse Passport Photo </th>
-                    <td mat-cell *matCellDef="let policyHolder"> {{policyHolder.spouse.passportPhoto}} </td>
+                <!-- CHILDREN -->
+                <ng-container matColumnDef="children">
+                    <th mat-header-cell *matHeaderCellDef> Children </th>
+                    <td mat-cell *matCellDef="let policyHolder">
+                        <ng-container *ngFor="let child of policyHolder.children">
+                            <ul>
+                                <li>{{child.firstName}} {{child.lastName}}</li>
+                                <li>{{child.gender}}</li>
+                                <li>{{child.birthCertOrIdNumber}}</li>
+                                <li>{{child.dateOfBirth}}</li>
+                                <li>{{child.proofOfSchooling}}</li>
+                                <li>{{child.birthCertOrIdPhoto}}</li>
+                            </ul>
+                        </ng-container>
+                    </td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
