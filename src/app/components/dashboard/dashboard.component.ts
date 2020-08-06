@@ -82,7 +82,6 @@ export class DashboardComponent implements OnInit {
         res.forEach((element: { createdAt: string | number | Date; }) => {
           element.createdAt = new Date(element.createdAt);
         });
-        console.log(res);
         this.isLoading = false;
         this.dataSource.data = res;
       }
@@ -99,7 +98,6 @@ export class DashboardComponent implements OnInit {
   }
 
   getRecord(ID: string) {
-    console.log(ID);
     this.router.navigate([`details/${ID}`]);
   }
 }

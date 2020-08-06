@@ -18,7 +18,6 @@ export class DetailsComponent implements OnInit {
     this.ID = this.activatedRoute.snapshot.params.ID;
     this.api.get('/PolicyHolders/' + this.ID).subscribe(
       res => {
-        console.log(res);
         this.policyHolder = res;
         this.isLoading = false;
       }
