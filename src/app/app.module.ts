@@ -17,12 +17,13 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroSectionComponent } from './components/hero-section/hero-section.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DetailsComponent } from './components/details/details.component';
+import { HttpErrorInterceptor } from './interceptor/httpconfig.interceptor';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,13 @@ import { DetailsComponent } from './components/details/details.component';
     MatTableExporterModule,
     MatSelectModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
